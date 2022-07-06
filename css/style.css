@@ -1,0 +1,29 @@
+h2 {
+  color: darkorange;
+  font-size: 24px;
+}
+#blue {
+  color: blue;
+}
+.redh3 {
+  color: red;
+  background-color: aqua;
+}
+.blue {
+  color: blue;
+}
+.greenh3 {
+  color: green;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.backgroundblue {
+  background-color: blue;
+}
+.special {
+  color: brown;
+}
+.container p {
+  color: blueviolet;
+}

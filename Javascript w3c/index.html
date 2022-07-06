@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="title">Hello world!</p>
+    <button
+      onclick='document.getElementById("title").innerHTML="JavaScript, I am comming!"'
+    >
+      click it!
+    </button>
+    <!-- <script>
+      alert("Try it!");
+    </script> -->
+    <p id="display"></p>
+    <script>
+      document.getElementById("display").innerHTML = "just try it";
+    </script>
+    <p id="variable"></p>
+    <script>
+      const x = 2;
+      {
+        const x = 3;
+      }
+      document.getElementById("variable").innerHTML = x + typeof 3.14;
+    </script>
+    <p id="function"></p>
+    <script src="./w3c.js"></script>
+    <button onclick="this.innerHTML = Date();">The time is ?</button>
+    <!--  onchange onclick onmouseover onmouseout onkeydown onload-->
+    <p id="demo"></p>
+    <script>
+      let header = "Templates Literals";
+      let tags = ["template literals", "javascript", "es6"];
+
+      let html = `<h2>${header}</h2><ul>`;
+
+      for (const x of tags) {
+        html += `<li>${x}</li>`;
+      }
+
+      html += `</ul>`;
+      document.getElementById("demo").innerHTML = html;
+    </script>
+
+    <p id="stringMultiply"></p>
+    <script>
+      let m = "3";
+      let n = "4";
+      let p = m * n;
+      document.getElementById("stringMultiply").innerHTML = p;
+    </script>
+    <p id="valueof"></p>
+    <script>
+      document.getElementById("valueof").innerHTML =
+        ("12" + "3").valueOf() + "<br>" + Number(new Date("2000-01-01"));
+    </script>
+
+    <p id="push"></p>
+    <script>
+      const points = new Array(3, 40, 87);
+      points.push(5);
+      document.getElementById("valueof").innerHTML = points;
+    </script>
+
+    <p id="join"></p>
+    <script>
+      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+      fruits.shift();
+      fruits.unshift("Lemon");
+      document.getElementById("join").innerHTML = fruits.join(" * ");
+    </script>
+
+    <p id="splice"></p>
+    <script>
+      const fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+      fruits2.splice(2, 2, "Lemon", "Kiwi");
+      document.getElementById("splice").innerHTML = fruits2.join(" * ");
+    </script>
+
+    <p>Click the buttons to sort the array alphabetically or numerically.</p>
+    <button onclick="myFunction1()">Sort Alphabetically</button>
+    <button onclick="myFunction2()">Sort Numerically</button>
+    <p id="demo2"></p>
+    <script>
+      const points2 = [40, 100, 1, 5, 25, 10];
+      document.getElementById("demo2").innerHTML = points2;
+
+      function myFunction1() {
+        points2.sort();
+        document.getElementById("demo2").innerHTML = points2;
+      }
+      function myFunction2() {
+        points2.sort(function (a, b) {
+          return a - b;
+        });
+        document.getElementById("demo2").innerHTML = points2;
+      }
+    </script>
+
+    <p id="map"></p>
+    <script>
+      const numbers1 = [45, 4, 9, 16, 25];
+      const numbers2 = numbers1.map(myFunction);
+
+      function myFunction(value, index, array) {
+        return value * 2;
+      }
+      document.getElementById("map").innerHTML = numbers2.join(" * ");
+    </script>
+
+    <p id="indexof"></p>
+    <script>
+      const fruits3 = ["Apple", "Orange", "Apple", "Orange"];
+      let position = fruits3.indexOf("Orange") + 1;
+
+      let isExist = fruits3.includes("Mango");
+      document.getElementById("indexof").innerHTML =
+        position + "<br>" + isExist;
+    </script>
+
+    <p>the scope of const and var is important</p>
+    <p id="scope"></p>
+
+    <script>
+      const cars = ["Saab", "Volvo", "BMW"];
+      // Here cars[0] is "Saab"
+      {
+        const cars = ["Toyota", "Volvo", "BMW"];
+        // Here cars[0] is "Toyota"
+      }
+      // Here cars[0] is "Saab"
+      document.getElementById("scope").innerHTML = cars[0];
+    </script>
+
+    <p>date</p>
+    <p id="date"></p>
+    <script>
+      const datenow = new Date();
+      const dateA = new Date(1982, 11, 11, 22, 34);
+      dateA.setMonth(4);
+      document.getElementById("date").innerHTML =
+        datenow + "<br>" + dateA + "<br>" + dateA.toISOString();
+
+      function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+    </script>
+
+    <p>
+      The for in and for of statement loops through the properties of an object:
+    </p>
+
+    <p id="forloopinandof"></p>
+
+    <script>
+      const person = { fname: "John", lname: "Doe", age: 25 };
+      const info = ["Anna", "Dynn", 25];
+
+      let txt = "";
+      for (let x in person) {
+        txt += x + ": " + person[x] + " ";
+      }
+      txt += "<br>";
+      for (let y of info) {
+        txt += y + " ";
+      }
+
+      document.getElementById("forloopinandof").innerHTML = txt;
+    </script>
+
+    <p>Please input a number between 5 and 10:</p>
+    <input id="inputValidation" type="number" min="5" max="10" step="1" />
+
+    <p>Please input a number between 5 and 10:</p>
+
+    <input id="inputCatch" type="text" />
+    <button type="button" onclick="myFunction()">Test Input</button>
+
+    <p id="p01"></p>
+
+    <script>
+      function myFunction() {
+        const message = document.getElementById("p01");
+        message.innerHTML = "";
+        let x = document.getElementById("inputCatch").value;
+        try {
+          if (x == "") throw "is empty";
+          if (isNaN(x)) throw "is not a number";
+          x = Number(x);
+          if (x > 10) throw "is too high";
+          if (x < 5) throw "is too low";
+        } catch (err) {
+          message.innerHTML = "Input " + err;
+        } finally {
+          document.getElementById("inputCatch").value = "";
+        }
+      }
+    </script>
+
+    <button onclick="this.style.display='none'">Click to Remove Me!</button>
+
+    <p>
+      This example demonstrate that in Arrow Functions, the "this" keyword
+      represents the object that owns the function, no matter who calls the
+      function.
+    </p>
+    <button id="btn">Click Me!</button>
+    <p id="eventListenerforthis"></p>
+    <script>
+      var hello;
+
+      hello = () => {
+        document.getElementById("eventListenerforthis").innerHTML += this;
+      };
+
+      //The window object calls the function:
+      window.addEventListener("load", hello);
+
+      //A button object calls the function:
+      document.getElementById("btn").addEventListener("click", hello);
+    </script>
+  </body>
+</html>
